@@ -1,0 +1,4 @@
+172.18.0.1 - - [03/Feb/2026:10:23:00 +0000] "GET / HTTP/1.1" 404 188 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" "-"
+172.18.0.1 - - [03/Feb/2026:10:23:00 +0000] "GET /favicon.ico HTTP/1.1" 404 188 "http://localhost/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" "-"
+172.18.0.1 - - [03/Feb/2026:10:23:20 +0000] "GET / HTTP/1.1" 404 188 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" "-"
+172.18.0.1 - - [03/Feb/2026:10:24:22 +0000] "GET /api/auth/ HTTP/1.1" 200 18438 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" "-"
