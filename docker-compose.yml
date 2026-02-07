@@ -12,10 +12,12 @@ services:
             - auth_service
         networks:
             - electronics_network
+
     redis:
         image: redis:alpine
         networks:
             - electronics_network
+
     auth_service:
         build:
             context: ./microservices/auth
@@ -42,8 +44,6 @@ services:
             - REDIS_PORT=6379
 
             - CACHE_DRIVER=redis
-        ports:
-            - "8001:8000"
         depends_on:
             - auth_mysql
             - redis
