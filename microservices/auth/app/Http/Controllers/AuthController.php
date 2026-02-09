@@ -41,7 +41,7 @@ class AuthController extends Controller
                 'token_type' => $data['token_type'],
                 'expires_in' => $data['expires_in'],
             ]
-        ]);
+        ], 201);
     }
 
     public function logout(): JsonResponse
