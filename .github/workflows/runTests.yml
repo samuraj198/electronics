@@ -1,0 +1,45 @@
+name: Auth Service Tests
+
+on:
+  push:
+    branches: [ main, feature/auth-service ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: microservice/auth/vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: mbstring, xml, ctype, iconv, intl, pdo_sqlite, json
+          coverage: none
+      - name: Install dependencies
+        working-directory: ./microservices/auth
+        run: composer install --no-progress --prefer-dist
+      - name: Setup environment
+        working-directory: ./microservices/auth
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+          php artisan jwt:secret --force
+      - name: Run migrations
+        working-directory: ./microservices/auth
+        run: php artisan migrate --force
+
+      - name: Run tests
+        working-directory: ./microservices/auth
+        run: php artisan test
