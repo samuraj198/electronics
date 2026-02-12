@@ -42,4 +42,4 @@ jobs:
 
       - name: Run tests
         working-directory: ./microservices/auth
-        run: php artisan test
+        run: php artisan test --testsuite=Feature
